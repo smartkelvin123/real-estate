@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import color from "colors";
 import userRoutes from "./routes/user.routes.js";
+import authRoutes from "./routes/auth.routes.js";
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const PORT = 5000;
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 const MONGO_URI = process.env.MONGO_URI;
 
