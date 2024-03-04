@@ -6,12 +6,11 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  // apiKey: "AIzaSyBDQfMp5meiPb5ELMWR2pNs6t9WvpdYkKM",
-  authDomain: "smart-real-estate-app-d5210.firebaseapp.com",
-  projectId: "smart-real-estate-app-d5210",
-  storageBucket: "smart-real-estate-app-d5210.appspot.com",
-  messagingSenderId: "292027088624",
-  appId: "1:292027088624:web:09a0bc78514739640f0c35",
+  authDomain: "smart-real-estate-f7b13.firebaseapp.com",
+  projectId: "smart-real-estate-f7b13",
+  storageBucket: "smart-real-estate-f7b13.appspot.com",
+  messagingSenderId: "1036709455538",
+  appId: "1:1036709455538:web:6fbe64a1c670cdd177cbab",
 };
 
 // Initialize Firebase
