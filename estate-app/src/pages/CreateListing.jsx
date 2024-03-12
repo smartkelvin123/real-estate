@@ -33,20 +33,20 @@ const CreateListing = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchListing = async () => {
-      const listingId = params.listingId;
-      const res = await fetch(`/api/create-listing/get/${listingId}`);
-      const data = await res.json();
-      if (data.success === false) {
-        console.log(data.message);
-        return;
-      }
-      setFormData(data);
-    };
+  // useEffect(() => {
+  //   const fetchListing = async () => {
+  //     const listingId = params.listingId;
+  //     const res = await fetch(`/api/create-listing/get/${listingId}`);
+  //     const data = await res.json();
+  //     if (data.success === false) {
+  //       console.log(data.message);
+  //       return;
+  //     }
+  //     setFormData(data);
+  //   };
 
-    fetchListing();
-  }, []);
+  //   fetchListing();
+  // }, []);
 
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
@@ -148,26 +148,22 @@ const CreateListing = () => {
         return setError("Discount price must be lower than regular price");
       setLoading(true);
       setError(false);
-      const res = await fetch(
-        // `/api//api/Listing/update/${params.listingId}`,
-        "api/Listing/create-listing",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/text",
-          },
-          body: JSON.stringify({
-            ...formData,
-            userRef: currentUser._id,
-          }),
-        }
-      );
+      const res = await fetch("/api/Listing/create-listing", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          userRef: currentUser._id,
+        }),
+      });
       const data = await res.json();
       setLoading(false);
       if (data.success === false) {
         setError(data.message);
       }
-      navigate(`/listing/${data._id}`);
+      navigate("/listing");
     } catch (error) {
       setError(error.message);
       setLoading(false);
